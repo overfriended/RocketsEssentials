@@ -1,0 +1,13 @@
+name: Broadcast
+version: 1.0
+main: me.rocket.broadcast.Broadcast
+api-version: 1.13
+authors: [your, mother]
+description: broadcast in 30 seconds or less with your mom
+commands:
+  broadcast:
+    description: Broadcast your feelings to people who don't care.
+  home:
+    description: Go back to your home where no one waits.
+  fly:
+    description: Fly away from your problems.
