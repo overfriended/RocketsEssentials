@@ -11,3 +11,5 @@ commands:
     description: Go back to your home where no one waits.
   fly:
     description: Fly away from your problems.
+  tp:
+    description: Teleport away from your problems.

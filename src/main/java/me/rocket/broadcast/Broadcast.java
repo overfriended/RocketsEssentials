@@ -3,6 +3,7 @@ package me.rocket.broadcast;
 import me.rocket.broadcast.commands.CommandBroadcast;
 import me.rocket.broadcast.commands.CommandFly;
 import me.rocket.broadcast.commands.CommandHome;
+import me.rocket.broadcast.commands.CommandTP;
 import me.rocket.broadcast.events.Events;
 import me.rocket.broadcast.utils.Utils;
 import me.rocket.broadcast.utils.Variables;
@@ -31,6 +32,7 @@ public final class Broadcast extends JavaPlugin {
         getCommand("broadcast").setExecutor(new CommandBroadcast());
         getCommand("home").setExecutor(new CommandHome());
         getCommand("fly").setExecutor(new CommandFly());
+        getCommand("tp").setExecutor(new CommandTP());
 
         PluginManager pm = Bukkit.getServer().getPluginManager();
         pm.registerEvents(new Events(), this);

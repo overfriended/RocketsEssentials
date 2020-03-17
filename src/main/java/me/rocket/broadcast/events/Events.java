@@ -16,6 +16,7 @@ public class Events implements Listener {
 
     ArrayList<Player> sleeping = new ArrayList<>();
     private static HashMap<String, Character> colors = new HashMap<>();
+    private static HashMap<String, String> prefixes = new HashMap<>();
 
     public static void setPlayerColor(Player player, char color) {
         colors.put(player.getName(), color);
@@ -31,6 +32,18 @@ public class Events implements Listener {
         }
 
         return 'e';
+    }
+
+    public String getPlayerPrefix(Player player) {
+        if (prefixes.containsKey(player.getName())) {
+            return prefixes.get(player.getName());
+        }
+
+        return null;
+    }
+
+    public void setPlayerPrefix(Player player, String prefix) {
+        prefixes.put(player.getName(), prefix);
     }
 
     @EventHandler
@@ -55,10 +68,10 @@ public class Events implements Listener {
             e.setMessage(Utils.format(e.getMessage()));
         }
 
-        if (player.getName().equalsIgnoreCase("supremegodofgods")) {
-            e.setFormat(Utils.format("&" + getPlayerColor(player) + "[GOD] " + player.getName() + "&7: " + e.getMessage()));
-        } else {
+        if(getPlayerPrefix(player) == null) {
             e.setFormat(Utils.format("&" + getPlayerColor(player) + player.getName() + "&7: " + e.getMessage()));
+        } else {
+            e.setFormat(Utils.format("&" + getPlayerColor(player) + "[" + getPlayerPrefix(player) + "] "+ player.getName() + "&7: " + e.getMessage()));
         }
     }
 }
