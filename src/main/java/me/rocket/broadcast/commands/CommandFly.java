@@ -1,6 +1,7 @@
 package me.rocket.broadcast.commands;
 
 import me.rocket.broadcast.utils.Utils;
+import me.rocket.broadcast.utils.Variables;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -20,7 +21,7 @@ public class CommandFly implements CommandExecutor {
         Player player = (Player) sender;
 
         if (command.getName().equalsIgnoreCase("fly")) {
-            if (sender.hasPermission("stuff.fly")) {
+            if (Variables.isIsSelfServer()) {
                 if (flying.contains(player)) {
                     Utils.send(player, "&cFlight is now &7disabled&c!");
                     player.setAllowFlight(false);

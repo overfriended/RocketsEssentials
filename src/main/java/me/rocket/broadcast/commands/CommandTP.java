@@ -1,6 +1,7 @@
 package me.rocket.broadcast.commands;
 
 import me.rocket.broadcast.utils.Utils;
+import me.rocket.broadcast.utils.Variables;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,7 +20,7 @@ public class CommandTP implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if (player.hasPermission("rocket.teleport")) {
+        if (Variables.isIsSelfServer()) {
             if (args.length == 1) {
                 Player target = Bukkit.getServer().getPlayer(args[0]);
 

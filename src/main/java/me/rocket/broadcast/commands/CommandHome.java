@@ -22,6 +22,7 @@ public class CommandHome implements TabExecutor {
 
         if (command.getName().equalsIgnoreCase("home")) {
             if (args.length == 0) {
+                Variables.setLastLocation(player, player.getLocation());
                 player.teleport(Variables.getHome(0));
                 Utils.send(player, "&aTeleported to default home!");
             } else if (args.length >= 1) {
@@ -33,6 +34,7 @@ public class CommandHome implements TabExecutor {
                         Utils.send(player, "&aSent back to your last position before teleport!");
                     } else if (NumberUtils.isNumber(args[0])) {
                         if (Variables.isHomeExist(NumberUtils.toInt(args[0]))) {
+                            Variables.setLastLocation(player, player.getLocation());
                             player.teleport(Variables.getHome(NumberUtils.toInt(args[0])));
                             Utils.send(player, "&aTeleported to home: &7" + args[0]);
                         } else {

@@ -1,7 +1,5 @@
 package me.rocket.broadcast.utils;
 
-import me.rocket.broadcast.Broadcast;
-import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -13,6 +11,8 @@ public class Variables {
 
     private static HashMap<UUID, Location> lastLocation = new HashMap<UUID, Location>();
     private static HashMap<Integer, Location> home = new HashMap<>();
+    private static HashMap<Player, Player> ignored = new HashMap<>();
+    private static boolean isSelfServer = true;
 
     public static Location getLastLocation(Player player) {
         if (lastLocation.containsKey(player.getUniqueId())) {
@@ -58,4 +58,7 @@ public class Variables {
         home.put(i, loc);
     }
 
+    public static boolean isIsSelfServer() {
+        return isSelfServer;
+    }
 }

@@ -64,6 +64,12 @@ public class Events implements Listener {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e) {
         Player player = e.getPlayer();
+
+        if (e.getMessage().equalsIgnoreCase("neat") && !player.getName().equalsIgnoreCase("pyrcnaut")) {
+            Bukkit.getServer().broadcastMessage(Utils.format("&c" + player.getName() + " said the n word!"));
+            e.setCancelled(true);
+        }
+
         if (player.hasPermission("stuff.chat.color")) {
             e.setMessage(Utils.format(e.getMessage()));
         }
